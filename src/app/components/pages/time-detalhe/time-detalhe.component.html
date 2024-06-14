@@ -1,0 +1,94 @@
+<app-voltar></app-voltar>
+
+<div *ngIf="timeDetalhe" class="mt-4 mb-3 p-5 bg-cinza-claro text-white rounded text-center mx-2"
+  style="position: relative;">
+  <div class="bg-image"
+    style="background-image: url('{{timeDetalhe.foto}}'); background-size: contain; background-repeat: no-repeat;background-position: center; opacity: 0.2; position: absolute; top: 0px; left: 0; width: 100%; height: 100%;">
+  </div>
+  <h1 class="text display-6" style="position: relative; z-index: 1;">{{timeDetalhe.name}}</h1>
+</div>
+
+
+
+<div class="container">
+  <div class="row mb-3 bg-cinza-claro">
+    <div class="col">
+      <h4 class="m-0 py-2">Jogadores</h4>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="timeDetalhe">
+  <div class="row mt-1">
+    <div class="col-3 mt-2" *ngFor="let player of timeDetalhe.players" >
+      <div class="d-flex mt-1 flex-column align-items-center">
+        <img class="rounded-circle" style="width: 60px;height:60px;" src="{{player.foto}}">
+        <span class="fw-bolder" style="font-size: 0.85rem;margin-top: 3px;">{{player.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-4">
+  <div class="row mb-2 bg-cinza-claro">
+    <div class="col">
+      <h4 class="m-0 py-2">Próximos Jogos</h4>
+    </div>
+  </div>
+  <div class="row border-bottom border-1 mb-2" *ngFor="let confrontoFuturo of confrontosFuturos" (click)="navigateDetalhe(confrontoFuturo.id)">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item bg-cinza-claro text-light w-100 d-flex justify-content-center text-center mb-2">
+          <div style="width: 40%;">
+            <img width="30px" src="{{confrontoFuturo.timeCasa.foto}}">
+            <h6 class="small mb-0" style="font-size: 0.7em;">{{confrontoFuturo.timeCasa.name}}</h6>
+          </div>
+          <div style="width: 30%;">
+            <img width="45px" height="45px" src="{{confrontoFuturo.jogoTabela.foto}}">
+          </div>
+          <div style="width: 40%;">
+            <img width="30px" src="{{confrontoFuturo.timeFora.foto}}">
+            <h6 class="small mb-0" style="font-size: 0.7em;">{{confrontoFuturo.timeFora.name}}</h6>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="row mb-3 bg-cinza-claro">
+    <div class="col">
+      <h4 class="m-0 py-2">Histórico de jogos</h4>
+    </div>
+  </div>
+  <div class="row border-bottom border-1 mb-3" *ngFor="let confrontoPassado of confrontosPassados" (click)="navigateDetalhe(confrontoPassado.id)">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item bg-cinza-claro text-light w-100 d-flex justify-content-center text-center mb-3">
+
+          <div style="width: 40%;" class="text-center">
+            <img width="30px" src="{{confrontoPassado.timeCasa.foto}}">
+            <h6 class="small mb-0" style="font-size: 0.7em;">{{confrontoPassado.timeCasa.name}}</h6>
+          </div>
+
+          <div style="width: 30%;" class="d-flex align-items-center">
+            <span class="me-3 fs-6 fw-bold">{{confrontoPassado.pontosCasa}}</span>
+            <img width="45px" height="45px" src="{{confrontoPassado.jogoTabela.foto}}">
+            <span class="ms-3 fs-6 fw-bold">{{confrontoPassado.pontosFora}}</span>
+          </div>
+
+          <div style="width: 40%;" class="text-center">
+            <img width="30px" src="{{confrontoPassado.timeFora.foto}}">
+            <h6 class="small mb-0" style="font-size: 0.7em;">{{confrontoPassado.timeFora.name}}</h6>
+          </div>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

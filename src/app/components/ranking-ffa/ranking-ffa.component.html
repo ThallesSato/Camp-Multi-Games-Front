@@ -1,0 +1,35 @@
+<div class="accordion bg-dark mx-1" id="accordionExample">
+  <div class="accordion-item bg-dark" *ngFor="let item of rankingFfa; let i = index">
+    <h2 class="accordion-header" id="headingOne">
+      <button
+        class="w-100 py-3 text-light my-2 radius-10px bg-cinza-claro d-flex justify-content-center align-items-center"
+        type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + (i + indexMaxRanking)" aria-expanded="true"
+        aria-controls="collapseOne">
+        <h3 class="m-0 p-0 {{item.name !== 'Geral' ? 'fs-5 ' : 'fs-3 fw-bold '}}">{{item.name}}</h3>
+        <i class="fa-sharp fa-solid fa-chevron-down fs-6" style="position: absolute; right:30px;"></i>
+      </button>
+    </h2>
+    <div id='collapse{{i+indexMaxRanking}}' class="accordion-collapse collapse" [class.show]="item.name === 'Geral'"
+      aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <table class="table table-sm text-light radiu fs-5 montserrat-regular">
+          <thead>
+            <tr>
+              <th style="width: 70%;">TIMES</th>
+              <th>P</th>
+              <th>J</th>
+              <th>V</th>
+              <th>D</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let itemTabela of item.tabelas; let it = index">
+              <td class="small">{{itemTabela.time}}</td>
+              <td class="fw-bold">{{itemTabela.pontos}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

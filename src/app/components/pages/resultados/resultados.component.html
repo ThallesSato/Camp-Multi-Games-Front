@@ -1,0 +1,44 @@
+<app-header textHeader="Resultados"></app-header>
+
+<div class="container mt-4">
+  <div class="row border-bottom border-1 mb-3" *ngFor="let resultado of resultados" (click)="navigateDetalhe(resultado.id)">
+
+    <!-- Time 1 -->
+    <div class="col col-md-5 text-center">
+      <div class="row">
+        <div class="col-12">
+          <div [style.margin-left.px]="resultado.pontosFora > resultado.pontosCasa ? 5 : -13">
+            <sup *ngIf="resultado.pontosCasa > resultado.pontosFora"><i
+                class="fa-solid fa-trophy text-warning me-1"></i></sup>
+            <img width="35px" src="{{resultado.timeCasa.foto}}">
+          </div>
+          <h6 class="mt-2 ms-1 small">{{resultado.timeCasa.name}}</h6>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jogo INFO-->
+    <div class="col text-center d-flex">
+      <span class="me-3 mt-2 fs-1 fw-bold text-center">{{resultado.pontosCasa}}</span>
+      <div class="">
+        <img width="60px" height="60px" src="{{resultado.jogoTabela.foto}}">
+        <span class="small fw-bold" style="font-size: 0.65em;">{{resultado.data | date:'dd/MM/yyyy'}}</span>
+      </div>
+      <span class="ms-3 mt-2 fs-1 fw-bold">{{resultado.pontosFora}}</span>
+    </div>
+
+    <!-- Time 2-->
+    <div class="col col-lg-5 text-center">
+      <div class="row">
+        <div class="col-12">
+          <div [style.margin-left.px]="resultado.pontosFora > resultado.pontosCasa ? -13 : 0">
+            <sup *ngIf="resultado.pontosFora > resultado.pontosCasa"><i
+                class="fa-solid fa-trophy text-warning me-1"></i></sup>
+            <img width="35px" src="{{resultado.timeFora.foto}}">
+          </div>
+          <h6 class="mt-2 ms-1 small">{{resultado.timeFora.name}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

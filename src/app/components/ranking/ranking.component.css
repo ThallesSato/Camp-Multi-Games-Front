@@ -1,0 +1,26 @@
+.w-65 {
+  width: 65% !important;
+}
+
+
+.radius-10px{
+  border-radius: 10px !important;
+}
+
+
+
+
+
+button:focus {
+  /* Estilos quando o botão é clicado ou recebe foco */
+  background-color: #60758e;
+  border: none !important;
+}
+
+button {
+  color: #FFF !important;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark fixed-bottom" style="background-color: #3C4959;">
+  <div class="container-fluid">
+      <ul class="navbar-nav m-auto d-flex flex-row gap-5">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" [class.active]="currentPage('/')">
+            <i class="fa-solid fa-ranking-star fs-3"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/jogos" [class.active]="currentPage('/jogos')">
+            <i class="fa-solid fa-gamepad-modern fs-3"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/resultados" [class.active]="currentPage('/resultados')">
+            <i class="fa-solid fa-trophy fs-3"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/times" [class.active]="currentPage('/times')">
+            <i class="fa-sharp fa-solid fa-people-group fs-3"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/jogos-futuros" [class.active]="currentPage('/jogos-futuros')">
+            <i class="fa-solid fa-solid fa-calendar-clock fs-3"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+</nav>

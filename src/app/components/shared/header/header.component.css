@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+@keyframes scaleRotateAnimation {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-15deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.image-container img {
+  animation: scaleRotateAnimation 3s infinite;
+}
+
+
+h4 {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:900;
+  font-style: normal;
+}

@@ -1,0 +1,15 @@
+<app-header [textHeader]="'Times'"></app-header>
+
+<div class="mb-2 mt-4 mx-2" *ngFor="let time of times; let i = index">
+  <h5 class="py-2 bg-cinza-claro mb-2 ps-2" (click)="navigateDetalhe(time.id)"><i class="fa-sharp fa-light fa-shield-check me-1"></i> {{time.name}}</h5>
+  <div class="container">
+    <div class="row mt-1">
+      <div class="col-3 mt-2" *ngFor="let player of time.players">
+        <div class="d-flex mt-1 flex-column align-items-center">
+          <img class="rounded-circle" style="width: 60px;height:60px;" src="{{player.foto}}">
+          <span class="fw-bolder" style="font-size: 0.85rem;margin-top: 3px;">{{player.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

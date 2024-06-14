@@ -1,0 +1,101 @@
+<app-voltar></app-voltar>
+
+<div *ngIf="resultadoDetalhe">
+  <div class="container mt-4">
+    <div class="row border-bottom border-1 mb-3">
+
+      <!-- Time 1 -->
+      <div class="col col-md-5 text-center" (click)="navigateDetalhe(resultadoDetalhe.timeCasa.id)">
+        <div class="row">
+          <div class="col-12">
+            <div [style.margin-left.px]="resultadoDetalhe.pontosFora > resultadoDetalhe.pontosCasa ? 5 : -13">
+              <sup *ngIf="resultadoDetalhe.pontosCasa > resultadoDetalhe.pontosFora"><i
+                  class="fa-solid fa-trophy text-warning me-1"></i></sup>
+              <img width="35px" src="{{resultadoDetalhe.timeCasa.foto}}">
+            </div>
+            <h6 class="mt-2 ms-1 small">{{resultadoDetalhe.timeCasa.name}}</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jogo INFO-->
+      <div class="col text-center d-flex">
+        <span class="me-3 fs-1 fw-bold">{{resultadoDetalhe.pontosCasa}}</span>
+        <div class="">
+          <img width="60px" height="60px" src="{{resultadoDetalhe.jogoTabela.foto}}">
+          <span class="small fw-bold me-1" style="font-size: 0.65em;">{{resultadoDetalhe.data |
+            date:'dd/MM/yyyy'}}</span>
+        </div>
+        <span class="ms-3 fs-1 fw-bold">{{resultadoDetalhe.pontosFora}}</span>
+      </div>
+
+      <!-- Time 2-->
+      <div class="col col-lg-5 text-center" (click)="navigateDetalhe(resultadoDetalhe.timeFora.id)">
+        <div class="row">
+          <div class="col-12">
+            <div *ngIf="resultadoDetalhe">
+              <div [style.margin-left.px]="resultadoDetalhe.pontosFora > resultadoDetalhe.pontosCasa ? -13 : 0">
+                <sup *ngIf="resultadoDetalhe.pontosFora > resultadoDetalhe.pontosCasa">
+                  <i class="fa-solid fa-trophy text-warning me-1"></i>
+                </sup>
+                <img width="35px" [src]="resultadoDetalhe.timeFora.foto">
+              </div>
+            </div>
+            <h6 class="mt-2 ms-1 small">{{resultadoDetalhe.timeFora.name}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="resultadoDetalhe" class="my-4">
+  <div class="col-11 m-auto" *ngFor="let mapa of resultadoDetalhe.mapas">
+    <div class="card bg-cinza-claro text-light border border-1 py-1 mb-2">
+      <div class="d-flex text-center align-items-center">
+
+        <h6 class="me-auto m-0 p-0 mt-1 d-flex flex-column" style="width: 20%;">{{mapa.pontosCasa}} <span
+            *ngIf="mapa.timePickId == resultadoDetalhe.timeCasa.id" class="ms-1 text-success-custom"
+            style="font-size: 0.6em; font-weight: 800;">PICKED</span> </h6>
+
+        <span>{{mapa.nomeMapa | uppercase}}</span>
+
+
+        <h6 class="ms-auto m-0 p-0 mt-1 d-flex flex-column" style="width: 20%;">{{mapa.pontosFora}} <span
+            *ngIf="mapa.timePickId == resultadoDetalhe.timeFora.id" class="ms-1 text-success-custom"
+            style="font-size: 0.6em; font-weight: 800;">PICKED</span> </h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="resultadoDetalhe" class="d-md-none">
+  <div class="container-fluid mt-3 w-md-50">
+    <div class="row">
+      <div class="col-5 ms-auto text-center mt-4">
+        <ul class="list-group">
+          <p class="d-flex justify-content-start align-items-center mb-4"
+            *ngFor="let player of resultadoDetalhe.timeCasa.players">
+            <img src="{{player.foto}}" class="border rounded-circle" width="30px" />
+            <span class="ms-2">{{player.name}}</span>
+          </p>
+        </ul>
+      </div>
+      <div class="col-2 d-flex flex-column gap-2">
+        <span class="">&nbsp;&nbsp;VS</span>
+        <div class="d-flex ms-3" style="height: 190px;">
+          <div class="vr" style="border: solid 0.1px #eee !important;"></div>
+        </div>
+      </div>
+      <div class="col-5 me-auto text-center mt-4">
+        <p class="d-flex justify-content-end mb-4 align-items-center"
+          *ngFor="let player of resultadoDetalhe.timeFora.players">
+          <span class="me-2">{{player.name}}</span>
+          <img src="{{player.foto}}" class="border rounded-circle" width="30px" />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
