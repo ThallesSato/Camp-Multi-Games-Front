@@ -1,0 +1,69 @@
+{
+  "configVersion": 1,
+  "timestamp": 1718385616084,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "MidBot",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.1caf1239ae03c418.js",
+        "/manifest.webmanifest",
+        "/polyfills.ae8ecbfa8044cb59.js",
+        "/runtime.8199276c15c88df9.js",
+        "/styles.2b60f9418b233c40.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/Imagem1-removebg-preview.png",
+        "/assets/icon.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/Imagem1-removebg-preview.png": "07d52993765439543abcc939a77416be258a7d8e",
+    "/assets/icon.png": "16d334e4bb0a08d1625194183f6d23d4b48cd61a",
+    "/favicon.ico": "54f0d416a896fa953e4ff21de82e587af4af5549",
+    "/index.html": "2807d2d753346b00633b6d3c3bd0afdef3973fa3",
+    "/main.1caf1239ae03c418.js": "b544737529cacb17286c24e697c6e14c77cf0a7e",
+    "/manifest.webmanifest": "84dec67219abf98b3bde120a020a99324260e454",
+    "/polyfills.ae8ecbfa8044cb59.js": "45ceb56c36e25bf02365d47b56a3f58a8f6c9362",
+    "/runtime.8199276c15c88df9.js": "62b6b0e42fde67007cdb552cf7f3b4847c178b0b",
+    "/styles.2b60f9418b233c40.css": "529767cbe8e90ee339f529b59a9c4b91dfd8efa1"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
